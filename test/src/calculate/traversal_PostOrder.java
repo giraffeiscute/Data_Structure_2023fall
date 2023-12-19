@@ -28,7 +28,7 @@ public class traversal_PostOrder {
 			tree.eularPrintTree();
 		}
 		catch(Exception e)
-		{}
+		{System.out.print("error on traveral");}
 		}
 	}
 
