@@ -60,7 +60,10 @@ public class Main {
 		WebNodes.add(webnode2);
 		WebNodes.add(webnode3);
 		WebNodes.add(webnode1);
+		
+		//用 quickSort 的方式排序
 		WebNodes.sort();
+		//印出排序後的list
 		WebNodes.output();
 		
 		

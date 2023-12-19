@@ -28,7 +28,7 @@ public class WebNodeList
 		}
 	}
 
-
+	
 	private void quickSort(int leftbound, int rightbound)
 	{
 		if (leftbound >= rightbound ) {
@@ -69,17 +69,16 @@ public class WebNodeList
 	public void output()
 	{
 		StringBuilder sb = new StringBuilder();
-		sb.append("rank 0 ");
+		sb.append("rank0: ");
 		for (int i = 0; i < lst.size(); i++)
 		{	
 			//String k1 = lst.get(i).webPage.name;
-//			double k2 = lst.get(i).nodeScore;
-//			if (i > 0)
-//				sb.append(" rank "+i+" ");
+			double k2 = lst.get(i).nodeScore;
+			if (i > 0)
+				sb.append(" rank"+i+": ");
 			//sb.append(k1.toString());
-//			String s = String.format("%f", k2);
-//			sb.append(s);
-			System.out.println(lst.get(i).nodeScore);
+			String s = String.format("%f", k2);
+			sb.append(s);
 		}
 
 		System.out.println(sb.toString());
