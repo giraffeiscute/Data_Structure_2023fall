@@ -15,7 +15,30 @@ public class WebNodeList
 	{
 		lst.add(webnode);
 	}
-
+	public int size(){
+	
+		return lst.size();
+	}
+	public WebNode get(int i){
+		
+		return lst.get(i);
+	}
+	
+	//檢查是否整個list的score都是0
+	public boolean is_zero(){
+		int check_zero = 0;
+        for (int i=0;i<lst.size();i++) {
+			if (lst.get(i).nodeScore >0) {
+				check_zero+=1;
+			}
+        }
+        if (check_zero==0) {
+        	return true;
+        }
+        else {
+        	return false;
+        }
+	}
 	public void sort()
 	{
 		if (lst.size() == 0)
@@ -45,8 +68,8 @@ public class WebNodeList
 				while(lst.get(k).nodeScore<pivot & j <= k &  k>0) {
 					k-=1;
 					}
-				System.out.println("SortError");
-				System.out.println(j+" and "+k);
+				//System.out.println("SortError");
+				//System.out.println(j+" and "+k);
 				if(j<k) {
 					swap(j, k);
 			}
@@ -79,7 +102,7 @@ public class WebNodeList
 				sb.append(" rank"+i+": ");
 			//sb.append(k1.toString());
 			String s = String.format("%f", k2);
-			sb.append(s);
+			sb.append(lst.get(i).webPage.name+" "+s);
 		}
 
 		System.out.println(sb.toString());

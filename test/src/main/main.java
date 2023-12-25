@@ -1,6 +1,6 @@
 package main;
 
-import java.util.Timer;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,12 +8,6 @@ import java.util.Scanner;
 import java.util.Vector;
 
 import javax.swing.text.GapContent;
-
-import calculate.WebNodeList;
-import calculate.WebTree;
-import calculate.recommend_movie;
-import calculate.synonym_finder;
-import calculate.traversal_PostOrder;
 
 
 public class main {
@@ -70,14 +64,20 @@ public class main {
     		System.out.println(parent.nodeScore);
     		WebNodess.add(parent);
         }
+
+        if (WebNodess.is_zero()== true){
+        	System.out.println("no movie related result");
+        }
+        else {
 		WebNodess.sort();
 		//印出排序後的list
 		WebNodess.output();
-		
+		System.out.println("----------------------------");
+        }
 		//推薦搜尋
 		recommend_movie rMovie = new recommend_movie();
+		System.out.println("similar research:");
 		recommend_movie.print_out(rMovie.find_synonym(keyword));
-		
     }
     
 }
