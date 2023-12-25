@@ -9,6 +9,12 @@ import java.util.Vector;
 
 import javax.swing.text.GapContent;
 
+import calculate.WebNodeList;
+import calculate.WebTree;
+import calculate.recommend_movie;
+import calculate.synonym_finder;
+import calculate.traversal_PostOrder;
+
 
 public class main {
     public static void main(String[] args) {
@@ -46,5 +52,32 @@ public class main {
 
         // 關閉 Scanner
         scanner.close();
+      //用PostOrder計算積分webnode1
+        synonym_finder words_set = new synonym_finder();
+		for (int i=0;i<parentArray.size();i++) {
+			if (words_set.find_synonym(parentArray.get(i))==1) {
+				System.out.println("remove " + parentArray.get(i).webPage.name);
+				parentArray.remove(i);
+			}
+        }
+		
+		//評分
+        WebNodeList WebNodess = new WebNodeList();
+        for (WebNode parent : parentArray) {
+    		WebTree tree1 = new WebTree(parent);
+    		traversal_PostOrder p1 = new traversal_PostOrder(tree1);
+    		p1.traversal();
+    		System.out.println(parent.nodeScore);
+    		WebNodess.add(parent);
+        }
+		WebNodess.sort();
+		//印出排序後的list
+		WebNodess.output();
+		
+		//推薦搜尋
+		recommend_movie rMovie = new recommend_movie();
+		recommend_movie.print_out(rMovie.find_synonym(keyword));
+		
     }
+    
 }

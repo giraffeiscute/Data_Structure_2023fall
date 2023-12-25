@@ -39,12 +39,13 @@ public class WebNodeList
 			int k = rightbound-1;
 			Double pivot = lst.get(rightbound).nodeScore;
 			while(j<k) {
-				while (lst.get(j).nodeScore>pivot & j <= k) {
+				while (lst.get(j).nodeScore>=pivot & j <= k) {
 					j+=1;
 					}
 				while(lst.get(k).nodeScore<pivot & j <= k &  k>0) {
 					k-=1;
 					}
+				System.out.println("SortError");
 				System.out.println(j+" and "+k);
 				if(j<k) {
 					swap(j, k);
