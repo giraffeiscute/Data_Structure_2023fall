@@ -66,6 +66,9 @@ public class Main {
 		//印出排序後的list
 		WebNodes.output();
 		
+		//
+		recommend_movie rMovie = new recommend_movie();
+		recommend_movie.print_out(rMovie.find_synonym("大尾盧曼"));
 		
 		System.out.println("end");
 	}
