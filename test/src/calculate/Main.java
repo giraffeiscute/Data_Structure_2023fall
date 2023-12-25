@@ -68,7 +68,7 @@ public class Main {
 		
 		//
 		recommend_movie rMovie = new recommend_movie();
-		recommend_movie.print_out(rMovie.find_synonym("大尾盧曼"));
+		recommend_movie.print_out(rMovie.find_synonym("Toy Story 五月天"));
 		
 		System.out.println("end");
 	}
